@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIS & SAP S/4HANA Master Study Platform | Zero-to-A+ Exam Prep</title>
+  
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Standalone Local Tailwind CSS & Custom Styles (100% Offline & file:/// Compatible) -->
+  <link rel="stylesheet" href="css/tailwind.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col antialiased">
+
+  <!-- TOP HEADER & PERSONALIZATION BAR -->
+  <header class="sticky top-0 z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 gap-4">
+        
+        <!-- Left: Course Logo & Badge -->
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-extrabold shadow-sm">
+            SAP
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">IS091IU &bull; Sem I 2026-2027</span>
+              <span class="hidden sm:inline-block px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 dark:bg-emerald-900/50 text-emerald-800 dark:text-emerald-300">Midterm Mastery A+</span>
+            </div>
+            <h1 class="text-base font-bold text-slate-900 dark:text-white leading-tight">Management Information Systems with ERP</h1>
+          </div>
+        </div>
+
+        <!-- Center: Search Bar (Desktop) -->
+        <div class="hidden md:flex flex-1 max-w-xs relative">
+          <input id="globalSearchInput" type="text" placeholder="Search T-codes, steps, terms..." class="w-full pl-9 pr-4 py-1.5 rounded-xl text-xs bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:text-slate-200">
+          <span class="absolute left-3 top-2 text-slate-400 text-xs">🔍</span>
+        </div>
+
+        <!-- Right: Student Number Replacer & Quick Controls -->
+        <div class="flex items-center gap-3">
+          <!-- Student Number Input -->
+          <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800">
+            <span class="text-xs font-bold text-blue-900 dark:text-blue-300 flex items-center gap-1">
+              <span>🆔</span> <span class="hidden sm:inline">My ID:</span>
+            </span>
+            <input id="studentNumberInput" type="text" maxlength="3" class="w-12 text-center font-mono font-bold text-xs bg-white dark:bg-slate-800 text-blue-600 dark:text-blue-400 border border-blue-300 dark:border-blue-700 rounded-md py-0.5 focus:outline-none focus:ring-1 focus:ring-blue-500" placeholder="180" title="Enter your personal 3-digit student number (###)">
+          </div>
+
+          <!-- Sound Toggle -->
+          <button id="soundToggle" class="p-2 rounded-xl text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" title="Toggle audio feedback">
+            <!-- Icon injected by app.js -->
+          </button>
+
+          <!-- Dark Mode Toggle -->
+          <button id="darkModeToggle" class="p-2 rounded-xl text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" title="Toggle dark mode">
+            🌓
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRIMARY TAB NAVIGATION -->
+    <div class="border-t border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/60 backdrop-blur-sm">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav class="flex space-x-1 sm:space-x-2 overflow-x-auto py-2 no-scrollbar" aria-label="Tabs">
+          <button class="nav-tab-btn px-3.5 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap bg-blue-600 text-white shadow-md flex items-center gap-1.5" data-tab="roadmap">
+            <span>🗺️</span> Zero-to-A+ Roadmap
+          </button>
+          <button class="nav-tab-btn px-3.5 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center gap-1.5" data-tab="sd-case-study">
+            <span>📦</span> SD Case Study (14 Steps)
+          </button>
+          <button class="nav-tab-btn px-3.5 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center gap-1.5" data-tab="mm-case-study">
+            <span>🏭</span> MM Case Study (24 Steps)
+          </button>
+          <button class="nav-tab-btn px-3.5 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center gap-1.5" data-tab="fi-module">
+            <span>📊</span> Balance Sheet & Income Statement (FI)
+          </button>
+          <button class="nav-tab-btn px-3.5 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center gap-1.5" data-tab="flashcards">
+            <span>📇</span> Active Recall (66 Cards)
+          </button>
+          <button class="nav-tab-btn px-3.5 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center gap-1.5" data-tab="step-ordering">
+            <span>🔀</span> Step Ordering Practice
+          </button>
+          <button class="nav-tab-btn px-3.5 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center gap-1.5" data-tab="mock-exam">
+            <span>📝</span> Midterm Mock Exam (45Q)
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN APP CONTAINER -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
+
+    <!-- VIEW 1: ZERO-TO-A+ ROADMAP -->
+    <section id="view-roadmap" class="view-section space-y-6">
+      <div class="flex flex-wrap items-center justify-between gap-4 pb-2 border-b border-slate-200 dark:border-slate-800">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">Curriculum Structure</span>
+          <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white mt-0.5">Progressive Zero-to-A+ Learning Path</h2>
+        </div>
+        <div id="globalProgressPill" class="px-3.5 py-1.5 rounded-full text-xs font-bold bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300">
+          Progress: 0%
+        </div>
+      </div>
+      
+      <!-- Levels Tabs -->
+      <div id="roadmapLevelsNav" class="flex gap-2 overflow-x-auto pb-2">
+        <!-- Rendered by app.js -->
+      </div>
+
+      <!-- Main Lesson Display -->
+      <div id="roadmapLessonContent">
+        <!-- Rendered by app.js -->
+      </div>
+    </section>
+
+    <!-- VIEW 2: SD CASE STUDY -->
+    <section id="view-sd-case-study" class="view-section hidden space-y-6">
+      <div class="flex flex-wrap items-center justify-between gap-4 pb-2 border-b border-slate-200 dark:border-slate-800">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">Sales and Distribution (SD)</span>
+          <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white mt-0.5">Order-to-Cash (O2C) 14-Step Interactive Guide</h2>
+        </div>
+        <div class="text-xs text-slate-500 font-medium">
+          Customer: <strong>The Bike Zone <span class="text-blue-600 font-mono">###</span></strong> &bull; Plant MI00
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        <!-- Steps List (Left Column) -->
+        <div class="lg:col-span-1 space-y-2 max-h-[750px] overflow-y-auto pr-1">
+          <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Sequential Steps</div>
+          <div id="sdStepsList" class="space-y-1.5">
+            <!-- Rendered by app.js -->
+          </div>
+        </div>
+
+        <!-- Step Details (Right Column) -->
+        <div class="lg:col-span-3" id="sdStepDetail">
+          <!-- Rendered by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 3: MM CASE STUDY -->
+    <section id="view-mm-case-study" class="view-section hidden space-y-6">
+      <div class="flex flex-wrap items-center justify-between gap-4 pb-2 border-b border-slate-200 dark:border-slate-800">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">Materials Management (MM)</span>
+          <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white mt-0.5">Procure-to-Pay (P2P) 24-Step Interactive Guide</h2>
+        </div>
+        <div class="text-xs text-slate-500 font-medium">
+          Supplier: <strong>Mid-West Supply <span class="text-amber-600 font-mono">###</span></strong> &bull; Material CHLK1###
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        <!-- Steps List (Left Column) -->
+        <div class="lg:col-span-1 space-y-2 max-h-[750px] overflow-y-auto pr-1">
+          <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Sequential Steps</div>
+          <div id="mmStepsList" class="space-y-1.5">
+            <!-- Rendered by app.js -->
+          </div>
+        </div>
+
+        <!-- Step Details (Right Column) -->
+        <div class="lg:col-span-3" id="mmStepDetail">
+          <!-- Rendered by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 4: FI MODULE -->
+    <section id="view-fi-module" class="view-section hidden space-y-6">
+      <div id="fiModuleContent">
+        <!-- Rendered by app.js -->
+      </div>
+    </section>
+
+    <!-- VIEW 5: ACTIVE RECALL FLASHCARDS -->
+    <section id="view-flashcards" class="view-section hidden space-y-6 max-w-4xl mx-auto">
+      <div class="flex flex-wrap items-center justify-between gap-4 pb-2 border-b border-slate-200 dark:border-slate-800">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">Active Recall Mastery</span>
+          <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white mt-0.5">Exam Concepts & T-Codes Flashcards</h2>
+        </div>
+        <div id="flashcardCount" class="text-xs font-semibold text-slate-500">
+          Card 1 of 66
+        </div>
+      </div>
+
+      <!-- Deck Tabs -->
+      <div id="flashcardDeckTabs" class="flex flex-wrap gap-2">
+        <!-- Rendered by app.js -->
+      </div>
+
+      <!-- Progress Line -->
+      <div class="w-full bg-slate-200 dark:bg-slate-700 h-1.5 rounded-full overflow-hidden">
+        <div id="flashcardProgress" class="bg-blue-600 h-full w-0 transition-all duration-300"></div>
+      </div>
+
+      <!-- 3D Card -->
+      <div id="flashcardCard" class="perspective-1000 my-4">
+        <!-- Injected by app.js -->
+      </div>
+
+      <!-- Controls -->
+      <div class="flex items-center justify-center gap-4 pt-2">
+        <button id="flashcardPrev" class="px-5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 font-bold text-xs hover:bg-slate-100 dark:hover:bg-slate-800 transition-all flex items-center gap-1.5">
+          <span>&larr;</span> Previous
+        </button>
+        <button id="flashcardShuffle" class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 font-bold text-xs hover:bg-slate-100 dark:hover:bg-slate-800 transition-all" title="Shuffle Deck">
+          🔀
+        </button>
+        <button id="flashcardNext" class="px-6 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-md transition-all flex items-center gap-1.5">
+          Next <span>&rarr;</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- VIEW 6: STEP ORDERING EXERCISES -->
+    <section id="view-step-ordering" class="view-section hidden space-y-6 max-w-4xl mx-auto">
+      <div class="flex flex-wrap items-center justify-between gap-4 pb-2 border-b border-slate-200 dark:border-slate-800">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">Interactive Sequence Practice</span>
+          <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white mt-0.5">Step-Ordering Challenge Simulator</h2>
+        </div>
+      </div>
+
+      <!-- Challenge Selector -->
+      <div id="stepOrderingSelector" class="flex flex-wrap gap-2">
+        <!-- Rendered by app.js -->
+      </div>
+
+      <!-- Main Challenge Container -->
+      <div id="stepOrderingContainer">
+        <!-- Rendered by app.js -->
+      </div>
+    </section>
+
+    <!-- VIEW 7: MOCK EXAM -->
+    <section id="view-mock-exam" class="view-section hidden space-y-6">
+      <div id="mockExamContainer">
+        <!-- Rendered by app.js -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL IMAGE LIGHTBOX -->
+  <div id="imageModal" class="fixed inset-0 z-50 modal-backdrop hidden items-center justify-center p-4">
+    <div class="relative bg-white dark:bg-slate-900 rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-hidden flex flex-col shadow-2xl border border-slate-200 dark:border-slate-700">
+      <div class="flex items-center justify-between p-4 border-b border-slate-200 dark:border-slate-800">
+        <h3 id="modalCaption" class="text-sm font-bold text-slate-900 dark:text-white truncate">SAP Screenshot Preview</h3>
+        <button id="modalClose" class="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-700 text-sm font-bold">&times;</button>
+      </div>
+      <div class="p-2 overflow-auto flex-1 flex items-center justify-center bg-slate-950">
+        <img id="modalImage" src="" alt="Screenshot Full View" class="max-w-full max-h-[75vh] object-contain rounded-lg">
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-6 text-center text-xs text-slate-500 dark:text-slate-400">
+    <div class="max-w-7xl mx-auto px-4 space-y-1">
+      <div>IS091IU &bull; Management Information Systems with ERP Application &bull; School of IEM &bull; HCMIU - VNU-HCM</div>
+      <div>Designed for Student Midterm Exam Mastery (Zero to A+ Level) &bull; Global Bike Inc. S/4HANA Curriculum</div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="js/data/roadmapData.js"></script>
+  <script src="js/data/sdCaseStudyData.js"></script>
+  <script src="js/data/mmCaseStudyData.js"></script>
+  <script src="js/data/fiModuleData.js"></script>
+  <script src="js/data/flashcardsData.js"></script>
+  <script src="js/data/stepOrderingData.js"></script>
+  <script src="js/data/mockExamData.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
